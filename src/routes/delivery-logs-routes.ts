@@ -13,4 +13,11 @@ deliveryLogsRoutes.post(
   deliveryLogsController.create
 );
 
+deliveryLogsRoutes.get(
+  "/:delivery_id/show",
+  ensureAuthenticated,
+  verifyUserAuthorizarion(["sale", "customer"]),
+  deliveryLogsController.show
+);
+
 export { deliveryLogsRoutes };
